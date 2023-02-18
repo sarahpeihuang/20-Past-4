@@ -1,4 +1,4 @@
-import pygame
+import pygame, time
 
 
 pygame.init()
@@ -7,6 +7,10 @@ width = 1000
 height = 500
 screen = pygame.display.set_mode((width, height))
 screen_rect = screen.get_rect()
+
+home_img = pygame.image.load('home.jpg')
+home_img = pygame.transform.scale(home_img,(width,height))
+home_rect = home_img.get_rect()
 
 lp_img = pygame.image.load('landing page.jpg')
 lp_img = pygame.transform.scale(lp_img,(width,height))
@@ -21,6 +25,7 @@ party_img = pygame.transform.scale(party_img,(width,height))
 party_rect = party_img.get_rect()
 
 washroom_img = pygame.image.load('washroom.jpg')
+washroom_img = pygame.transform.scale(washroom_img,(width,height))
 washroom_rect = washroom_img.get_rect()
 
 
@@ -28,40 +33,85 @@ pygame.display.flip()
 
 #the game loop
 running = True
-washroom = True
+washroom = False
 party = False
 classroom = False
+
+level1 = False
+level2 = False
+level3 = False
+home = False
+
 i=0
 
 while running:
     #event loop
-    
     for event in pygame.event.get():
         if event.type == pygame.QUIT: #quit the game
             running = False
-        elif event.type == pygame.KEYDOWN:
-            screen.blit(lp_img,(i,0))
-            i -= 1
+        elif event.type == pygame.KEYDOWN:   
             if event.key == pygame.K_1 and washroom: #level one: washroom
-               party = True
-               screen = pygame.display.set_mode((washroom_rect.width, washroom_rect.height))
-               screen_rect = screen.get_rect()
-               #render
-               pygame.display.flip()
-               screen.blit(washroom_img,washroom_rect)
-
+               level1 = True
+               level2 = False
+               level3 = False
+               home = False
+               party = True #makes the enxt level avaliable
             if event.key == pygame.K_2 and party: #level 2: party
-               classroom = True
-               screen = pygame.display.set_mode((party_rect.width, party_rect.height))
-               screen_rect = screen.get_rect()
-
+               level1 = False
+               level2 = True
+               level3 = False
+               home = False   
+               classroom = True #makes the final level avaliable
             if event.key == pygame.K_3 and classroom: #level 3: classroom   
-                screen = pygame.display.set_mode((classroom_rect.width, classroom_rect.height))
-                screen_rect = screen.get_rect()
+               level1 = False
+               level2 = False
+               level3 = True 
+               home = False   
+            if event.key == pygame.K_SPACE:
+                washroom = True
+                home = True
+                level1 = False
+                level2 = False
+                level3 = False    
 
     #game logic
+    if washroom == False:
+        screen.blit(home_img,home_rect)
+        pygame.display.update()
+        img = home_img
 
-    #render
-    pygame.display.flip()
-    screen.blit(lp_img,lp_rect)
+    if level1:
+        while True:
+            screen.blit(lp_img,(i,0))
+            screen.blit(washroom_img,(width + i,0))
+            if(i==-width):
+                break
+            i -= 0.5 
+            pygame.display.update()
+            
+    if level2:
+        while True:
+            screen.blit(lp_img,(i,0))
+            screen.blit(party_img,(width + i,0))
+            if(i==-width):
+                break
+            i -= 0.5 
+            pygame.display.update()   
+            
+    if level3:
+        while True:
+            screen.blit(lp_img,(i,0))
+            screen.blit(classroom_img,(width + i,0))
+            if(i==-width):
+                break
+            i -= 0.5 
+            pygame.display.update()   
+
+    if home:
+        screen.blit(lp_img,lp_rect)
+        pygame.display.update()
+        i=0                   
+    
+
+
 pygame.quit()
