@@ -97,7 +97,7 @@ while running:
                 break
             i -= 0.5 
             pygame.display.update()   
-            
+
     if level3:
         while True:
             screen.blit(lp_img,(i,0))
@@ -111,7 +111,5 @@ while running:
         screen.blit(lp_img,lp_rect)
         pygame.display.update()
         i=0                   
-    
-
 
 pygame.quit()
