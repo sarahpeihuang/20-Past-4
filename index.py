@@ -59,7 +59,7 @@ situation2_fail = pygame.transform.scale(situation2_fail,(width-100,height/4))
 screen.blit(situation2_fail, (50,10))
 
 situation2_pass = pygame.image.load('Situation_2_CORRECT.png')
-situation2_pass = pygame.transform.scale(situation2_pass,(width-100,180))
+situation2_pass = pygame.transform.scale(situation2_pass,(width-100,195))
 screen.blit(situation2_pass, (50,10))
 
 situation3_init = pygame.image.load('sit3.jpg')
@@ -125,6 +125,7 @@ level3_pass = False
 
 tries = 0
 fails = 0
+success = 0
 
 i=0
 j=0
@@ -218,31 +219,33 @@ while running:
         input_text_surface = base_font.render(user_text, True, (255, 255, 255))
         screen.blit(input_text_surface, (input_rect.x+5, input_rect.y+5))
         input_rect.w = max(100, input_text_surface.get_width()+10)
-        pygame.display.flip() 
+        # pygame.display.flip() 
         clock.tick(60)
 
         if replied == False: #before response is typed
+            screen.blit(situation1_init, (50,10))
             #replying user
             pygame.draw.rect(screen, output_color, output_rect)
             output_text_surface = base_font.render("Hey bro, want to take a hit (inhaling one puff of marijuana)?", True, (255, 255, 255))
             screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
             output_rect.w = max(100, output_text_surface.get_width()+10)
-            pygame.display.flip() 
-            clock.tick(60) 
+            # pygame.display.flip() 
+            clock.tick(100) 
 
-            screen.blit(situation1_init, (50,10))
+            
             pygame.display.flip()
 
         if replied:
             if level1_reply == "Positive":
                 level1_pass = True
                 tries += 1
+                success += 1
                 # reply
                 pygame.draw.rect(screen, output_color, output_rect)
                 output_text_surface = base_font.render("Okay, whatever makes you comfortable!", True, (255, 255, 255))
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                pygame.display.flip() 
+                # pygame.display.flip() 
                 clock.tick(60) 
             
                 screen.blit(situation1_pass, (50,10))   
@@ -255,7 +258,7 @@ while running:
                 output_text_surface = base_font.render("Here you go.", True, (255, 255, 255))  
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                pygame.display.flip() 
+                # pygame.display.flip() 
                 clock.tick(60)  
 
                 screen.blit(situation1_fail, (50,10))
@@ -283,7 +286,7 @@ while running:
         input_text_surface = base_font.render(user_text, True, (255, 255, 255))
         screen.blit(input_text_surface, (input_rect.x+5, input_rect.y+5))
         input_rect.w = max(100, input_text_surface.get_width()+10)
-        pygame.display.flip() 
+        # pygame.display.flip() 
         clock.tick(60)
 
         if replied == False: #before response is typed
@@ -292,7 +295,7 @@ while running:
             output_text_surface = base_font.render("Woah, the smoke looks so cool, let’s smoke!", True, (255, 255, 255))
             screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
             output_rect.w = max(100, output_text_surface.get_width()+10)
-            pygame.display.flip() 
+            # pygame.display.flip() 
             clock.tick(60) 
 
             screen.blit(situation2_init, (50,10))
@@ -302,12 +305,13 @@ while running:
             if level2_reply == "Positive":
                 level2_pass = True
                 tries += 1
+                success += 1
                 # reply
                 pygame.draw.rect(screen, output_color, output_rect)
                 output_text_surface = base_font.render("I guess my head hurts a bit, we can step out.", True, (255, 255, 255))
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                pygame.display.flip() 
+                # pygame.display.flip() 
                 clock.tick(60) 
             
                 screen.blit(situation2_pass, (50,10))
@@ -320,7 +324,7 @@ while running:
                 output_text_surface = base_font.render("Sweet! Tonight's gonna be lit!", True, (255, 255, 255))  
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                pygame.display.flip() 
+                # pygame.display.flip() 
                 clock.tick(60)  
 
                 screen.blit(situation2_fail, (50,10))
@@ -344,7 +348,7 @@ while running:
         input_text_surface = base_font.render(user_text, True, (255, 255, 255))
         screen.blit(input_text_surface, (input_rect.x+5, input_rect.y+5))
         input_rect.w = max(100, input_text_surface.get_width()+10)
-        pygame.display.flip() 
+        # pygame.display.flip() 
         clock.tick(60)
 
         if replied == False: #before response is typed
@@ -353,7 +357,7 @@ while running:
             output_text_surface = base_font.render("What are the negative effects of marijuana smoke on the human body?", True, (255, 255, 255))
             screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
             output_rect.w = max(100, output_text_surface.get_width()+10)
-            pygame.display.flip() 
+            # pygame.display.flip() 
             clock.tick(60) 
 
             screen.blit(situation3_init, (50,10))
@@ -363,12 +367,13 @@ while running:
             if level3_reply == "Positive":
                 level3_pass = True
                 tries += 1
+                success += 1
                 # reply
                 pygame.draw.rect(screen, output_color, output_rect)
                 output_text_surface = base_font.render("Well said! You obviously know your stuff!", True, (255, 255, 255))
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                pygame.display.flip() 
+                # pygame.display.flip() 
                 clock.tick(60) 
             
                 screen.blit(situation3_pass, (50,10))
@@ -381,7 +386,7 @@ while running:
                 output_text_surface = base_font.render("Hmm... Not sure about that one.", True, (255, 255, 255))  
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                pygame.display.flip() 
+                # pygame.display.flip() 
                 clock.tick(60)  
 
                 screen.blit(situation3_fail, (50,10))
@@ -395,10 +400,10 @@ while running:
         if (level1_pass and level2_pass and level3_pass):
             print("ALL PASSED")
             #narrarator line 1
-            print(fails, tries)
-            score = round(((tries-fails)/tries)*100)
+            print(success, tries)
+            score = round(((success)/tries)*100)
             if score > 60:
-                endScreenText = "%"+" Great work! You know your stuff. Stay strong to your values as you navigate through adolescence."
+                endScreenText = "%"+" Great work! Stay strong to your values as you navigate through adolescence."
             else:
                 endScreenText = "%"+" It took you a few tries but you made good decisions in the end! "  
             
@@ -414,7 +419,7 @@ while running:
             output_text_surface = base_font.render("You completed all the levels successfully!", True, (255, 255, 255))
             screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
             output_rect.w = max(100,output_text_surface.get_width()+10)
-            pygame.display.flip()
+            # pygame.display.flip()
             clock.tick(60)
 
 

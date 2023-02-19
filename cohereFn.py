@@ -2,7 +2,7 @@ import cohere
 from cohere.classify import Example
 co = cohere.Client('yhlIG1WYyeUVrAJ2NzhQwYKnghq6sbs8DfWCPulm') # This is your trial API key
 
-def washroomResponse(msg):
+def washroomResponse(msg): #“Hey bro, want to take a hit (inhaling one puff of marijuana)?”
   response = co.classify(
   model='large',
   inputs=[msg],
@@ -23,7 +23,7 @@ def washroomResponse(msg):
   print(response.classifications[0].prediction)
   return response.classifications[0].prediction
 
-def partyResponse(msg): 
+def partyResponse(msg): #“Woah, the smoke looks so cool, let’s continue smoking!”
   response = co.classify(
   model='large',
   inputs=[msg],
@@ -43,7 +43,7 @@ def partyResponse(msg):
   return response.classifications[0].prediction
 
 
-def classroomResponse(msg):
+def classroomResponse(msg): #What are the negative effects of marijuana smoke on the human body?
   response = co.classify(
   model='large',
   inputs=[msg],
@@ -59,6 +59,6 @@ def classroomResponse(msg):
             Example("Fetal development: Marijuana use during pregnancy can harm fetal development, leading to low birth weight and cognitive and behavioral problems in children.\n\n", "Positive"), 
             Example("smoking marijuana is bad for the lungs but people like to do it because it makes them look cool", "Positive"), 
             Example("marijuana actually improves mental and physical health", "Negative"),Example("human brains develop until age 25, its unsafe for young people to consume this drug", "Positive"),
-            Example("its bad for heart and brain health", "Positive")])
+            Example("its bad for heart and brain health", "Positive"),Example("its good for heart and brain health", "Negative")])
   print(response.classifications[0].prediction)
   return (response.classifications[0].prediction)
