@@ -37,7 +37,8 @@ def partyResponse(msg):
             Example("The air quality is being compromised.", "Positive"), Example("It's unacceptable that the air we breathe is being polluted like this.", "Positive"), 
             Example("The air is being polluted with harmful substances.", "Positive"), Example("The air we're inhaling is toxic.", "Positive"), 
             Example("This level of air pollution is dangerous.", "Positive"), Example("I am conflicted because I want to stay at the party but it smells bad. I think I will leave for a bit.", "Positive"), 
-            Example("I want to stay at the party because I don't want to leave and feel left out. The smoke is bad but I will stay.", "Negative")])
+            Example("I want to stay at the party because I don't want to leave and feel left out. The smoke is bad but I will stay.", "Negative"),
+            Example("sure.", "Negative"),Example("not at all!", "Positive")])
   print(response.classifications[0].prediction)
   return response.classifications[0].prediction
 
@@ -56,7 +57,7 @@ def classroomResponse(msg):
             Example("Impaired driving: Marijuana use can impair judgment, coordination, and reaction time, which can lead to accidents while driving.\n\n", "Positive"), 
             Example("Addiction: Long-term use of marijuana can lead to addiction, with withdrawal symptoms including irritability, insomnia, and loss of appetite.\n\n", "Positive"), 
             Example("Fetal development: Marijuana use during pregnancy can harm fetal development, leading to low birth weight and cognitive and behavioral problems in children.\n\n", "Positive"), 
-            Example("smoking marijuana is bad for the lungs but people like to do it because it makes them look cool", "Positive"), Example("marijuana actually improves mental and physical health", "Negative"),
-            Example("It's good for you", "Negative")])
+            Example("smoking marijuana is bad for the lungs but people like to do it because it makes them look cool", "Positive"), 
+            Example("marijuana actually improves mental and physical health", "Negative"),])
   print(response.classifications[0].prediction)
   return (response.classifications[0].prediction)
