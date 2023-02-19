@@ -338,6 +338,7 @@ while running:
                 break
             i -= 0.5 
             mixer.music.load('classroom.mp3')
+            mixer.music.play()
             pygame.display.update()   
        
         screen.blit(main,(75,300))
