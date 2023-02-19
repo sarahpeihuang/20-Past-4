@@ -58,6 +58,7 @@ def classroomResponse(msg):
             Example("Addiction: Long-term use of marijuana can lead to addiction, with withdrawal symptoms including irritability, insomnia, and loss of appetite.\n\n", "Positive"), 
             Example("Fetal development: Marijuana use during pregnancy can harm fetal development, leading to low birth weight and cognitive and behavioral problems in children.\n\n", "Positive"), 
             Example("smoking marijuana is bad for the lungs but people like to do it because it makes them look cool", "Positive"), 
-            Example("marijuana actually improves mental and physical health", "Negative"),])
+            Example("marijuana actually improves mental and physical health", "Negative"),Example("human brains develop until age 25, its unsafe for young people to consume this drug", "Positive"),
+            Example("its bad for heart and brain health", "Positive")])
   print(response.classifications[0].prediction)
   return (response.classifications[0].prediction)

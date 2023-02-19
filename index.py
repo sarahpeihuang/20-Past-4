@@ -47,7 +47,7 @@ situation1_fail = pygame.transform.scale(situation1_fail,(width-100,height/4))
 screen.blit(situation1_fail, (50,10))
 
 situation1_pass = pygame.image.load('sit1_pass.jpg')
-situation1_pass = pygame.transform.scale(situation1_pass,(width-100,height/4))
+situation1_pass = pygame.transform.scale(situation1_pass,(width-100,180))
 screen.blit(situation1_pass, (50,10))
 
 situation2_init = pygame.image.load('Situation_2.png')
@@ -59,7 +59,7 @@ situation2_fail = pygame.transform.scale(situation2_fail,(width-100,height/4))
 screen.blit(situation2_fail, (50,10))
 
 situation2_pass = pygame.image.load('Situation_2_CORRECT.png')
-situation2_pass = pygame.transform.scale(situation2_pass,(width-100,height/4))
+situation2_pass = pygame.transform.scale(situation2_pass,(width-100,180))
 screen.blit(situation2_pass, (50,10))
 
 situation3_init = pygame.image.load('sit3.jpg')
@@ -71,7 +71,7 @@ situation3_fail = pygame.transform.scale(situation3_fail,(width-100,height/4))
 screen.blit(situation3_fail, (50,10))
 
 situation3_pass = pygame.image.load('Situation_3_CORRECT.png')
-situation3_pass = pygame.transform.scale(situation3_pass,(width-100,height/4))
+situation3_pass = pygame.transform.scale(situation3_pass,(width-100,180))
 screen.blit(situation3_pass, (50,10))
 
 main = pygame.image.load('main.png')
@@ -395,11 +395,12 @@ while running:
         if (level1_pass and level2_pass and level3_pass):
             print("ALL PASSED")
             #narrarator line 1
-            score = ((fails/tries)*100)
+            print(fails, tries)
+            score = round(((tries-fails)/tries)*100)
             if score > 60:
                 endScreenText = "%"+" Great work! You know your stuff. Stay strong to your values as you navigate through adolescence."
             else:
-                endScreenText = "%"+" It took you a few tries but you made good decisions in the end! Stay strong to your values as you navigate through adolescence."  
+                endScreenText = "%"+" It took you a few tries but you made good decisions in the end! "  
             
             pygame.draw.rect(screen, input_color, input_rect)
             input_text_surface = base_font.render(str(score) + endScreenText, True, (255, 255, 255))
