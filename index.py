@@ -1,12 +1,19 @@
 import pygame, time
+from pygame import mixer
 
 
 pygame.init()
+mixer.init()
+
 #initialize the screen
-width = 1000
-height = 500
+width = 1200
+height = 600
 screen = pygame.display.set_mode((width, height))
 screen_rect = screen.get_rect()
+
+blk_img = pygame.image.load('black.jpg')
+blk_img = pygame.transform.scale(blk_img,(width,height))
+blk_rect = blk_img.get_rect()
 
 home_img = pygame.image.load('home.jpg')
 home_img = pygame.transform.scale(home_img,(width,height))
@@ -28,10 +35,9 @@ washroom_img = pygame.image.load('washroom.jpg')
 washroom_img = pygame.transform.scale(washroom_img,(width,height))
 washroom_rect = washroom_img.get_rect()
 
-
-pygame.display.flip()
-
-#the game loop
+mixer.music.load('intro.mp3')
+mixer.music.set_volume(1)
+mixer.music.play()
 running = True
 washroom = False
 party = False
@@ -43,7 +49,7 @@ level3 = False
 home = False
 
 i=0
-
+j=0
 while running:
     #event loop
     for event in pygame.event.get():
@@ -76,17 +82,24 @@ while running:
 
     #game logic
     if washroom == False:
-        screen.blit(home_img,home_rect)
-        pygame.display.update()
-        img = home_img
+        while True:
+            screen.blit(blk_img,(0,j))
+            screen.blit(home_img,(0,height + j))
+            if(j== -height):
+                break
+            j -= 0.25
+            pygame.display.update()
+
 
     if level1:
         while True:
             screen.blit(lp_img,(i,0))
             screen.blit(washroom_img,(width + i,0))
-            if(i==-width):
+            if(i==-width): 
                 break
             i -= 0.5 
+            mixer.music.load('washroom.mp3')
+            mixer.music.play()
             pygame.display.update()
             
     if level2:
@@ -95,7 +108,10 @@ while running:
             screen.blit(party_img,(width + i,0))
             if(i==-width):
                 break
+
             i -= 0.5 
+            mixer.music.load('party.mp3')
+            mixer.music.play()
             pygame.display.update()   
 
     if level3:
@@ -105,6 +121,7 @@ while running:
             if(i==-width):
                 break
             i -= 0.5 
+            mixer.music.load('classroom.mp3')
             pygame.display.update()   
 
     if home:
