@@ -1,5 +1,6 @@
-import pygame, sys
+import pygame
 from pygame import mixer
+import cohereFn
 
 
 pygame.init()
@@ -110,7 +111,8 @@ while running:
                 #print("+++++++"+str(user_text))
 
             if event.key == pygame.K_RETURN:
-                print(str(user_text))
+                resp_type = cohereFn.printClass(user_text)
+                if resp_type == "Positive:"
                 user_text = ''
 
             
