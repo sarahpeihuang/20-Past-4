@@ -28,8 +28,8 @@ Based on the amount of retries, a final grade is presented to the user. Users ar
 ![image](https://user-images.githubusercontent.com/43208342/220165509-92f7398e-9c68-41f0-b705-3fa7b411bbf3.png)
 
 
-#Challenges We Encountered
+# Challenges We Encountered
 We had difficulty importing the Cohere API as it was the first time we used an API before, and it was resolved through consulting with the company representative. We also had issues with the API-generated responses when prompted with user input, as the classifications would not be 100% accurate. To solve this, we fed more test cases through Cohere's playground classification system to train the API to improve its detection accuracy.
 
-#What's Next for 20 Past 4
+# What's Next for 20 Past 4
 We have plans to educate on the impacts of drugs on other elements such as Earth and Fire, where an example of cocaine production causes deforestation. As well, we hope to implement more variations of scenarios where young teens may encounter conflicting scenarios relating to drug use and peer pressure, because not only does it impact their youth but it impacts the environment. We will remain cost-effective because it allows for widespread accessibility where the game can be easily distributed via the internet, reaching a broad audience without the need for expensive physical distribution or marketing.
