@@ -6,8 +6,8 @@ We developed an interactive game, “20 Past 4”, which promotes and empowers t
 [Inspiration](#Inspiration)  
 [Interface](#Interface)  
 [Levels](#Levels)  
-[Challenges ](#Challenges We Encountered)  
-[What's ](#What's Next)   
+[Challenges ](#Challenges-We-Encountered)  
+[What's Next?](#What's-Next-for-20-Past-4)   
 
 # Inspiration
 Statistics show that Canada was ranked as one of the top 5 countries with the highest cannabis use rates in 2020 and when it comes to marijuana, kids who smoke pot tend to start between the ages of 12 and 16. To address the high prevalence of cannabis use in Canada, our team has risen to this challenge by developing interactive simulations that engage and empower the younger generation to make informed decisions about their health and well-being. The fact that kids who smoke pot start at a young age add to the urgency of tackling the issue.
