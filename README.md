@@ -6,8 +6,9 @@ We developed an interactive game, “20 Past 4”, which promotes and empowers t
 [Inspiration](#Inspiration)  
 [Interface](#Interface)  
 [Levels](#Levels)  
-[Challenges ](#Challenges-We-Encountered)  
+[Challenges Encoutered](#Challenges-We-Encountered)  
 [What's Next?](#What's-Next-for-20-Past-4)   
+[Updates](#Update-Log)  
 
 # Inspiration
 Statistics show that Canada was ranked as one of the top 5 countries with the highest cannabis use rates in 2020 and when it comes to marijuana, kids who smoke pot tend to start between the ages of 12 and 16. To address the high prevalence of cannabis use in Canada, our team has risen to this challenge by developing interactive simulations that engage and empower the younger generation to make informed decisions about their health and well-being. The fact that kids who smoke pot start at a young age add to the urgency of tackling the issue.
@@ -42,4 +43,5 @@ We had difficulty importing the Cohere API as it was the first time we used an A
 # What's Next for 20 Past 4
 We have plans to educate on the impacts of drugs on other elements such as Earth and Fire, where an example of cocaine production causes deforestation. As well, we hope to implement more variations of scenarios where young teens may encounter conflicting scenarios relating to drug use and peer pressure, because not only does it impact their youth but it impacts the environment. We will remain cost-effective because it allows for widespread accessibility where the game can be easily distributed via the internet, reaching a broad audience without the need for expensive physical distribution or marketing.
 
-#Update Log
+# Update Log
+<b>March 2023:</b> orgianized images and audio files into folders, identified constant variables
