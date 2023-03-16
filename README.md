@@ -44,4 +44,4 @@ We had difficulty importing the Cohere API as it was the first time we used an A
 We have plans to educate on the impacts of drugs on other elements such as Earth and Fire, where an example of cocaine production causes deforestation. As well, we hope to implement more variations of scenarios where young teens may encounter conflicting scenarios relating to drug use and peer pressure, because not only does it impact their youth but it impacts the environment. We will remain cost-effective because it allows for widespread accessibility where the game can be easily distributed via the internet, reaching a broad audience without the need for expensive physical distribution or marketing.
 
 # Update Log
-<b>March 2023:</b> orgianized images and audio files into folders, identified constant variables
+<b>March 2023:</b> organized images and audio files into folders, identified constant variables
