@@ -2,14 +2,12 @@
 By: Sarah Huang, Laurie Liu, Claire Zhang </br></br>
 We developed an interactive game, “20 Past 4”, which promotes and empowers the younger generation with the knowledge they need to make informed choices surrounding substance use in daily situations. We do so by educating individuals on how to react to various scenarios, from responding to peer pressure to communicating the negative effects of marijuana use on the environment and personal health. The application provides users with three levels that reflect three possible scenarios, where the responses are fed through Cohere API which classifies all responses as either positive or negative. We used the Cohere Classify playground to help produce test cases and train the API to produce accurate responses. Based on the response, the game prompts the user to try again with a better response or to move onto the next level.
 
-##### Table of Contents  
+#Table of Contents  
 [Inspiration](#Inspiration)  
 [Interface](#Interface)  
 [Levels](#Levels)  
 [Challenges We Encountered](#Challenges We Encountered)  
-[Whats Next](#What's Next for 20 Past 4)   
-<a name="headers"/>
-## Headers
+[What's Next for 20 Past 4](#What's Next)   
 
 # Inspiration
 Statistics show that Canada was ranked as one of the top 5 countries with the highest cannabis use rates in 2020 and when it comes to marijuana, kids who smoke pot tend to start between the ages of 12 and 16. To address the high prevalence of cannabis use in Canada, our team has risen to this challenge by developing interactive simulations that engage and empower the younger generation to make informed decisions about their health and well-being. The fact that kids who smoke pot start at a young age add to the urgency of tackling the issue.
