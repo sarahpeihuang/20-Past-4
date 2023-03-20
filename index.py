@@ -1,6 +1,6 @@
 import pygame
 from pygame import mixer
-import cohereFn
+import cohereFn, imgInit
 
 
 pygame.init()
@@ -14,81 +14,28 @@ screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 screen_rect = screen.get_rect()
 
 #initialize images
-blk_img = pygame.image.load("images\Black.jpg")
-blk_img = pygame.transform.scale(blk_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
-blk_rect = blk_img.get_rect()
-
-home_img = pygame.image.load('images\Home.jpg')
-home_img = pygame.transform.scale(home_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
-home_rect = home_img.get_rect()
-
-lp_img = pygame.image.load('images\Landing page.jpg')
-lp_img = pygame.transform.scale(lp_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
-lp_rect = lp_img.get_rect()
-
-classroom_img = pygame.image.load('images\Classroom.jpg')
-classroom_img = pygame.transform.scale(classroom_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
-classroom_rect = classroom_img.get_rect()
-
-party_img = pygame.image.load('images\Party.jpg')
-party_img = pygame.transform.scale(party_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
-party_rect = party_img.get_rect()
-
-washroom_img = pygame.image.load('images\Washroom.jpg')
-washroom_img = pygame.transform.scale(washroom_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
-washroom_rect = washroom_img.get_rect()
-
-situation1_init = pygame.image.load('images\Situation_1_init.png')
-situation1_init = pygame.transform.scale(situation1_init,(SCREEN_WIDTH-100,SCREEN_HEIGHT/4))
-screen.blit(situation1_init, (50,10))
-
-situation1_fail = pygame.image.load('images\Sit1 fail.jpg')
-situation1_fail = pygame.transform.scale(situation1_fail,(SCREEN_WIDTH-100,SCREEN_HEIGHT/4))
-screen.blit(situation1_fail, (50,10))
-
-situation1_pass = pygame.image.load('images\Sit1_pass.jpg')
-situation1_pass = pygame.transform.scale(situation1_pass,(SCREEN_WIDTH-100,180))
-screen.blit(situation1_pass, (50,10))
-
-situation2_init = pygame.image.load('images\Situation_2.png')
-situation2_init = pygame.transform.scale(situation2_init,(SCREEN_WIDTH-100,SCREEN_HEIGHT/4))
-screen.blit(situation2_init, (50,10))
-
-situation2_fail = pygame.image.load('images\Situation_2_WRONG.png')
-situation2_fail = pygame.transform.scale(situation2_fail,(SCREEN_WIDTH-100,SCREEN_HEIGHT/4))
-screen.blit(situation2_fail, (50,10))
-
-situation2_pass = pygame.image.load('images\Situation_2_CORRECT.png')
-situation2_pass = pygame.transform.scale(situation2_pass,(SCREEN_WIDTH-100,195))
-screen.blit(situation2_pass, (50,10))
-
-situation3_init = pygame.image.load('images\Sit3.jpg')
-situation3_init = pygame.transform.scale(situation3_init,(SCREEN_WIDTH-100,SCREEN_HEIGHT/4))
-screen.blit(situation3_init, (50,10))
-
-situation3_fail = pygame.image.load('images\Situation 3 INCORRECT.png')
-situation3_fail = pygame.transform.scale(situation3_fail,(SCREEN_WIDTH-100,SCREEN_HEIGHT/4))
-screen.blit(situation3_fail, (50,10))
-
-situation3_pass = pygame.image.load('images\Situation_3_CORRECT.png')
-situation3_pass = pygame.transform.scale(situation3_pass,(SCREEN_WIDTH-100,180))
-screen.blit(situation3_pass, (50,10))
+blk_rect = imgInit.blk_img.get_rect()
+home_rect = imgInit.home_img.get_rect()
+lp_rect = imgInit.lp_img.get_rect()
+classroom_rect = imgInit.classroom_img.get_rect()
+party_rect = imgInit.party_img.get_rect()
+washroom_rect = imgInit.washroom_img.get_rect()
+screen.blit(imgInit.situation1_init, (50,10))
+screen.blit(imgInit.situation1_fail, (50,10))
+screen.blit(imgInit.situation1_pass, (50,10))
+screen.blit(imgInit.situation2_init, (50,10))
+screen.blit(imgInit.situation2_fail, (50,10))
+screen.blit(imgInit.situation2_pass, (50,10))
+screen.blit(imgInit.situation3_init, (50,10))
+screen.blit(imgInit.situation3_fail, (50,10))
+screen.blit(imgInit.situation3_pass, (50,10))
 
 #character images
-main = pygame.image.load('images\Main.png')
-main = pygame.transform.scale(main,(100,250))
-
-second = pygame.image.load('images\Second.png')
-second = pygame.transform.scale(second,(100,250))
-
-third = pygame.image.load('images\Third.png')
-third = pygame.transform.scale(third,(250,250))
-
-fourth = pygame.image.load('images\Fourth.png')
-fourth = pygame.transform.scale(fourth,(150,300))
-
-teacher = pygame.image.load('images\Teacher.png')
-teacher = pygame.transform.scale(teacher,(250,250))
+main = pygame.transform.scale(imgInit.main,(100,250))
+second = pygame.transform.scale(imgInit.second,(100,250))
+third = pygame.transform.scale(imgInit.third,(250,250))
+fourth = pygame.transform.scale(imgInit.fourth,(150,300))
+teacher = pygame.transform.scale(imgInit.teacher,(250,250))
 pygame.display.flip()
 
 #initialize music
@@ -107,25 +54,31 @@ input_color = input_color_passive
 output_rect = pygame.Rect(400,250,140,32)
 output_color = pygame.Color('orange')
 
-active = False
+#level progression parameters
+active = False #for text box highlight
+running = True #for game loop
 
-running = True
+#to make the levels avaliable in order
 washroom = False
 party = False
 classroom = False
 
+#screens
 level1 = False
 level2 = False
 level3 = False
 home = False
+
+#once character clicks enter, triggers interface reply
 replied = False
 
+#checks game completion, shows endgame screen
 level1_pass = False
 level2_pass = False
 level3_pass = False
 
+#to calculate final score
 tries = 0
-fails = 0
 success = 0
 
 i=0
@@ -193,8 +146,8 @@ while running:
 
     if washroom == False:#home page upward transition
         while True:
-            screen.blit(blk_img,(0,j))
-            screen.blit(home_img,(0,SCREEN_HEIGHT + j))
+            screen.blit(imgInit.blk_img,(0,j))
+            screen.blit(imgInit.home_img,(0,SCREEN_HEIGHT + j))
             if(j== -SCREEN_HEIGHT):
                 break
             j -= 0.25
@@ -202,42 +155,41 @@ while running:
 
     if level1: #initialize level setting
         while True:
-            screen.blit(lp_img,(i,0))
-            screen.blit(washroom_img,(SCREEN_WIDTH + i,0))
+            #screen transition
+            screen.blit(imgInit.lp_img,(i,0))
+            screen.blit(imgInit.washroom_img,(SCREEN_WIDTH + i,0))
             if(i==-SCREEN_WIDTH): 
                 break
             i -= 0.5 
+            #play music
             mixer.music.load('audio\Washroom.mp3')
+            mixer.music.set_volume(0.5)
             mixer.music.play()
             pygame.display.update()
 
+        #blit characters
         screen.blit(main,(75,300))
         screen.blit(second,(1000,325))
-
 
         # draw rectangle and argument passed which should be on screen
         pygame.draw.rect(screen, input_color, input_rect)
         input_text_surface = base_font.render(user_text, True, (255, 255, 255))
         screen.blit(input_text_surface, (input_rect.x+5, input_rect.y+5))
         input_rect.w = max(100, input_text_surface.get_width()+10)
-        # pygame.display.flip() 
         clock.tick(60)
 
         if replied == False: #before response is typed
-            screen.blit(situation1_init, (50,10))
+            screen.blit(imgInit.situation1_init, (50,10))
             #replying user
             pygame.draw.rect(screen, output_color, output_rect)
             output_text_surface = base_font.render("Hey bro, want to take a hit (inhaling one puff of marijuana)?", True, (255, 255, 255))
             screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
             output_rect.w = max(100, output_text_surface.get_width()+10)
-            # pygame.display.flip() 
-            clock.tick(100) 
-
-            
+            clock.tick(100)   
             pygame.display.flip()
 
         if replied:
-            if level1_reply == "Positive":
+            if level1_reply == "Positive": #if api returns
                 level1_pass = True
                 tries += 1
                 success += 1
@@ -246,34 +198,31 @@ while running:
                 output_text_surface = base_font.render("Okay, whatever makes you comfortable!", True, (255, 255, 255))
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                # pygame.display.flip() 
                 clock.tick(60) 
             
-                screen.blit(situation1_pass, (50,10))   
+                screen.blit(imgInit.situation1_pass, (50,10))   
                 pygame.display.flip()
             else:  
                 tries += 1
-                fails += 1 
                 # reply
                 pygame.draw.rect(screen, output_color, output_rect)
                 output_text_surface = base_font.render("Here you go.", True, (255, 255, 255))  
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                # pygame.display.flip() 
                 clock.tick(60)  
-
-                screen.blit(situation1_fail, (50,10))
+                screen.blit(imgInit.situation1_fail, (50,10))
                 pygame.display.flip()
 
-    if level2:      
+    if level2: #initialize level setting      
         while True:
-            screen.blit(lp_img,(i,0))
-            screen.blit(party_img,(SCREEN_WIDTH + i,0))
+            screen.blit(imgInit.lp_img,(i,0))
+            screen.blit(imgInit.party_img,(SCREEN_WIDTH + i,0))
             if(i==-SCREEN_WIDTH):
                 break
 
             i -= 0.5 
             mixer.music.load('audio/Party.mp3')
+            mixer.music.set_volume(0.5)
             mixer.music.play()
             pygame.display.update()   
 
@@ -299,7 +248,7 @@ while running:
             # pygame.display.flip() 
             clock.tick(60) 
 
-            screen.blit(situation2_init, (50,10))
+            screen.blit(imgInit.situation2_init, (50,10))
             pygame.display.flip() 
 
         if replied:
@@ -315,11 +264,10 @@ while running:
                 # pygame.display.flip() 
                 clock.tick(60) 
             
-                screen.blit(situation2_pass, (50,10))
+                screen.blit(imgInit.situation2_pass, (50,10))
                 pygame.display.flip()
             else:   
                 tries += 1
-                fails += 1                 
                 # reply
                 pygame.draw.rect(screen, output_color, output_rect)
                 output_text_surface = base_font.render("Sweet! Tonight's gonna be lit!", True, (255, 255, 255))  
@@ -328,17 +276,18 @@ while running:
                 # pygame.display.flip() 
                 clock.tick(60)  
 
-                screen.blit(situation2_fail, (50,10))
+                screen.blit(imgInit.situation2_fail, (50,10))
                 pygame.display.flip()
 
-    if level3:
+    if level3: #initialize level setting
         while True:
-            screen.blit(lp_img,(i,0))
-            screen.blit(classroom_img,(SCREEN_WIDTH + i,0))
+            screen.blit(imgInit.lp_img,(i,0))
+            screen.blit(imgInit.classroom_img,(SCREEN_WIDTH + i,0))
             if(i==-SCREEN_WIDTH):
                 break
             i -= 0.5 
             mixer.music.load('audio/Classroom.mp3')
+            mixer.music.set_volume(0.5)
             mixer.music.play()
 
             pygame.display.update()   
@@ -361,7 +310,7 @@ while running:
             output_rect.w = max(100, output_text_surface.get_width()+10)
             clock.tick(60) 
 
-            screen.blit(situation3_init, (50,10))
+            screen.blit(imgInit.situation3_init, (50,10))
             pygame.display.flip() 
 
         if replied:
@@ -376,7 +325,7 @@ while running:
                 output_rect.w = max(100, output_text_surface.get_width()+10)
                 clock.tick(60) 
             
-                screen.blit(situation3_pass, (50,10))
+                screen.blit(imgInit.situation3_pass, (50,10))
                 pygame.display.flip()
             else:   
                 tries += 1
@@ -388,11 +337,11 @@ while running:
                 output_rect.w = max(100, output_text_surface.get_width()+10)
                 clock.tick(60)  
 
-                screen.blit(situation3_fail, (50,10))
+                screen.blit(imgInit.situation3_fail, (50,10))
                 pygame.display.flip()
     
     if home:
-        screen.blit(lp_img,lp_rect)
+        screen.blit(imgInit.lp_img,lp_rect)
         pygame.display.update()
         i=0                   
 
@@ -412,6 +361,5 @@ while running:
             input_rect.w = max(100, input_text_surface.get_width()+10)
             pygame.display.flip() 
             clock.tick(60)
-        
 
 pygame.quit()
