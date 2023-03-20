@@ -236,7 +236,6 @@ while running:
         input_text_surface = base_font.render(user_text, True, (255, 255, 255))
         screen.blit(input_text_surface, (input_rect.x+5, input_rect.y+5))
         input_rect.w = max(100, input_text_surface.get_width()+10)
-        # pygame.display.flip() 
         clock.tick(60)
 
         if replied == False: #before response is typed
@@ -245,7 +244,6 @@ while running:
             output_text_surface = base_font.render("Woah, the smoke looks so cool, let’s smoke!", True, (255, 255, 255))
             screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
             output_rect.w = max(100, output_text_surface.get_width()+10)
-            # pygame.display.flip() 
             clock.tick(60) 
 
             screen.blit(imgInit.situation2_init, (50,10))
@@ -261,7 +259,6 @@ while running:
                 output_text_surface = base_font.render("I guess my head hurts a bit, we can step out.", True, (255, 255, 255))
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                # pygame.display.flip() 
                 clock.tick(60) 
             
                 screen.blit(imgInit.situation2_pass, (50,10))
@@ -273,7 +270,6 @@ while running:
                 output_text_surface = base_font.render("Sweet! Tonight's gonna be lit!", True, (255, 255, 255))  
                 screen.blit(output_text_surface, (output_rect.x+5, output_rect.y+5))
                 output_rect.w = max(100, output_text_surface.get_width()+10)
-                # pygame.display.flip() 
                 clock.tick(60)  
 
                 screen.blit(imgInit.situation2_fail, (50,10))
@@ -329,7 +325,6 @@ while running:
                 pygame.display.flip()
             else:   
                 tries += 1
-                fails += 1                 
                 # reply
                 pygame.draw.rect(screen, output_color, output_rect)
                 output_text_surface = base_font.render("Hmm... Not sure about that one.", True, (255, 255, 255))  
