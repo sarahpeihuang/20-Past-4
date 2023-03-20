@@ -1,4 +1,6 @@
 # 20-Past-4
+By: Sarah Huang, Laurie Liu, Claire Zhang </br></br>
+
 We developed an interactive game, <b>“20 Past 4”</b>, which promotes and empowers the younger generation with the knowledge they need to make <b>informed choices surrounding substance use</b> in daily situations. The application provides users with three levels that reflect three possible scenarios, where the responses are fed through <b>Cohere API</b> which classifies all responses as either positive or negative. We used the Cohere Classify playground to help produce test cases and train the API to produce accurate responses. Based on the response, the game prompts the user to try again with a better response or to move onto the next level.
 
 # Table of Contents  
