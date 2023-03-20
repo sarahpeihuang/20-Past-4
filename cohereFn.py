@@ -3,10 +3,11 @@ from cohere.classify import Example
 from dotenv import load_dotenv
 load_dotenv()#take environment variables from .env
 
-API_KEY = cohere.Client(os.getenv("API_KEY")) # This is trial API key
+API_KEY = (os.getenv("API_KEY")) # This is trial API key
+co = cohere.Client(API_KEY)
 
 def washroomResponse(msg): #“Hey bro, want to take a hit (inhaling one puff of marijuana)?”
-  response = API_KEY.classify(
+  response = co.classify(
   model='large',
   inputs=[msg],
   examples=[Example("Ummm, I don't know.", "Negative"), Example("Maybe next time.", "Negative"), 
@@ -27,7 +28,7 @@ def washroomResponse(msg): #“Hey bro, want to take a hit (inhaling one puff of
   return response.classifications[0].prediction
 
 def partyResponse(msg): #“Woah, the smoke looks so cool, let’s continue smoking!”
-  response = API_KEY.classify(
+  response = co.classify(
   model='large',
   inputs=[msg],
   examples=[Example("Yes, let's continue smoking, even though the air is polluted.", "Negative"), Example("It's a good idea for us to stay inside in this polluted air.", "Negative"), 
@@ -47,7 +48,7 @@ def partyResponse(msg): #“Woah, the smoke looks so cool, let’s continue smok
 
 
 def classroomResponse(msg): #What are the negative effects of marijuana smoke on the human body?
-  response = API_KEY.classify(
+  response = co.classify(
   model='large',
   inputs=[msg],
   examples=[Example("There are no consequences to smoking marijuana.", "Negative"), Example("Marijuana is good for you.", "Negative"), 

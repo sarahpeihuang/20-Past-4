@@ -1,9 +1,10 @@
 import pygame
-from index import SCREEN_HEIGHT,SCREEN_WIDTH
 
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 600
 #initialize images
-blk_img = pygame.image.load("images\Black.jpg")
-blk_img = pygame.transform.scale(blk_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
+blk_init = pygame.image.load("images\Black.jpg")
+blk_img = pygame.transform.scale(blk_init,(SCREEN_WIDTH, SCREEN_HEIGHT))
 
 home_img = pygame.image.load('images\Home.jpg')
 home_img = pygame.transform.scale(home_img,(SCREEN_WIDTH, SCREEN_HEIGHT))
