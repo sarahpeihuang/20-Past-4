@@ -24,7 +24,6 @@ def washroomResponse(msg): #“Hey bro, want to take a hit (inhaling one puff of
             Example("I'm not interested.\n", "Positive"), Example("I'm allergic to it.\n", "Positive"), 
             Example("I prefer to stay sober.\n", "Positive"), Example("I love weed.\n", "Negative"), 
             Example("I have to focus on something important later.\n", "Positive")])
-  print(response.classifications[0].prediction)
   return response.classifications[0].prediction
 
 def partyResponse(msg): #“Woah, the smoke looks so cool, let’s continue smoking!”
@@ -43,7 +42,6 @@ def partyResponse(msg): #“Woah, the smoke looks so cool, let’s continue smok
             Example("This level of air pollution is dangerous.", "Positive"), Example("I am conflicted because I want to stay at the party but it smells bad. I think I will leave for a bit.", "Positive"), 
             Example("I want to stay at the party because I don't want to leave and feel left out. The smoke is bad but I will stay.", "Negative"),
             Example("sure.", "Negative"),Example("not at all!", "Positive")])
-  print(response.classifications[0].prediction)
   return response.classifications[0].prediction
 
 
@@ -64,5 +62,4 @@ def classroomResponse(msg): #What are the negative effects of marijuana smoke on
             Example("smoking marijuana is bad for the lungs but people like to do it because it makes them look cool", "Positive"), 
             Example("marijuana actually improves mental and physical health", "Negative"),Example("human brains develop until age 25, its unsafe for young people to consume this drug", "Positive"),
             Example("its bad for heart and brain health", "Positive"),Example("its good for heart and brain health", "Negative")])
-  print(response.classifications[0].prediction)
   return (response.classifications[0].prediction)
