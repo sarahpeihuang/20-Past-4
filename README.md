@@ -46,7 +46,7 @@ We have plans to educate on the impacts of drugs on other elements such as Earth
 
 # Update Log
 <b>March 2023:</b>  </br>
-- organized images and audio files into folders </br>
-- identified constant variables </br>
-- decluttered index.py, made imgInit.py </br>
-- added .env for the API key </br>
+- Organized images and audio files into folders </br>
+- Identified constant variables </br>
+- Decluttered index.py, made imgInit.py </br>
+- Added .env for the API key </br>
